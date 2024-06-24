@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        .c0{
+             background-color:#FFE4C4;
+             width:400px;
+             height:300px;
+             /*所在区域左右居中*/
+             margin:auto;
+        }
+        .c0 .c1{
+            /*文本左右居中*/
+            text-align:center;
+            padding:120px 0px 50px 0px;
+        }
+        .c0 .c1 input{
+            /*控制input输入框之间的距离*/
+            margin:2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="c0">
+            <form method="get" action="/input_sign_in">
+                <div class="c1">
+                    <span>账号:<input type="text" name="账号"></span><br>
+                    <span>密码:<input type="password" name="密码"></span><br>
+                    <span><input type="submit" value="登录"></span>
+                </div>
+            </form>
+    </div>
+</body>
+</html>

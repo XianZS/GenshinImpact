@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页面</title>
+    <style>
+        /*---第一层---*/
+        /*去掉body默认边框*/
+        body{
+            margin:0;
+        }
+        .header{
+            width:100%;
+            background-color:black;
+        }
+        .header .header1{
+            width:65%;
+            background-color:black;
+            margin:0 auto;
+        }
+        .header .left{
+            float:left;
+            color:white;
+            height:40px;
+            line-height:40px;
+        }
+        .header .right{
+            float:right;
+            color:white;
+            height:40px;
+            line-height:40px;
+        }
+        .header  a{
+            color:#FFFAFA;
+            /*文字将垂直居中，行高40px*/
+            line-height:40px;
+            /*用以保留块级标签的特性*/
+            display:inline-block;
+            /*字体大小为12px*/
+            font-size=12px;
+            /*去掉下划线*/
+            text-decoration: none
+        }
+        /*---第二层---*/
+        /*先定义父类，再定义子类*/
+        /*去掉span标签之间的间距*/
+        span{
+            float:left;
+        }
+        .c{
+            background-color:orange;
+            width:100%;
+        }
+        /*先在c0中将块级标签span具有行级标签的特性，然后设置背景颜色，并且将页面按照宽度分成两块*/
+        .c .c0{
+            display:inline-block;
+            background-color:orange;
+            width:20%;
+            /*设置边框*/
+            height:240px;/*当子类未设置高度时，左右变宽会显示不完全*/
+            border: 1px solid black;/*设置黑色边框*/
+        }
+        /*之后在c1中设置背景颜色，并且将区域设置为100%(实际为整个页面的50%)，之后将该区域中内容进行行居中处理*/
+        .c .c0 .c1{
+            background-color:orange;
+            width:100%;
+            text-align:center;
+            /*设置上右下左边距*/
+            margin:10px 0px 10px 0px;
+        }
+        a{
+            /*去掉下划线*/
+            text-decoration: none;
+        }
+        /*去掉span标签之间的间距*/
+        span{
+            /*左浮动*/
+            float:left;
+        }
+        /*img设置；（1）图片自适应（2）添加边框*/
+        img{
+            height: auto;
+            width:100%;
+            /*去掉图片之间的间距*/
+            display: block;
+        }
+        a img:hover{
+            border:10px solid pink;
+            width:98.7%;
+        }
+    </style>
+</head>
+<body>
+    <!--首部菜单栏-->
+    <div class="header">
+        <div class="header1">
+            <div class="left">
+                <a href="/">首页</a>
+                <a href="/huo_type">火属性</a>
+                <a href="/shui_type">水属性</a>
+                <a href="/bing_type">冰属性</a>
+                <a href="/feng_type">风属性</a>
+                <a href="/lei_type">雷属性</a>
+                <a href="/yan_type">岩属性</a>
+            </div>
+            <div class="right">
+                <a href="/sign_in">登录</a>
+                <a href="/sign_up">注册</a>
+                <a href="">更多</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    <div class="c">
+        <!--筛选-->
+        <form action="/Sift_things" method="get">
+            <span class="c0">
+                <span class="c1">---筛选---</span>
+                <span class="c1">生命值：<input type="text" name="生命值"><br></span>
+                <span class="c1">防御力：<input type="text" name="防御力"><br></span>
+                <span class="c1">攻击力：<input type="text" name="攻击力"><br></span>
+                <span class="c1"><input type="submit" value="筛选"></span>
+            </span>
+        </form>
+        <!--排列-->
+        <form action="/Sort_by" method="get">
+            <span class="c0">
+                <span class="c1">---排序---</span>
+                <span class="c1">排序条件:<br></span>
+                <span class="c1">
+                    <input type="radio" name="排序条件" value="生命值">生命值
+                    <input type="radio" name="排序条件" value="防御力">防御力
+                    <input type="radio" name="排序条件" value="攻击力">攻击力
+                </span>
+                <span class="c1">提示:火/水/冰/风/雷/岩</span>
+                <span class="c1"><input type="text" name="属性">属性</span>
+                <span class="c1"><input type="submit" value="排序"></span>
+            </span>
+        </form>
+        <!--查找某一角色-->
+        <form action="/find_role">
+            <span class="c0" style="width:14.87%;height:120px;">
+                <span class="c1">---查找---</span>
+                <span class="c1">请输入查找信息:<br></span>
+                <span class="c1"><input type="text" name="查找条件" value="例:班尼特/可莉/心海……"><br></span>
+                <span class="c1"><input type="submit" value="查找"></span>
+            </span>
+        </form>
+        <form action="/max_and_min">
+            <span class="c0" style="width:15%;height:120px;">
+                <span class="c1">各数值(生命值/防御力/攻击力)</span>
+                <span class="c1">max or min</span>
+                <span class="c1"><input type="submit" name="find" value="显示"></span>
+            </span>
+        </form>
+        <form action="/all_role">
+            <span class="c0" style="height:120px;width:29.47%">
+                <span class="c1">---按照属性分类---</span>
+                <span class="c1">侧重于显示所有角色数据</span>
+                <span class="c1"><input type="submit" name="ALL" value="查看"></span>
+            </span>
+        </form>
+        <form action="/Compare_things">
+            <span class="c0" style="height:120px;width:30%">
+                <span class="c1">---数据比较展示---</span>
+                <span class="c1">侧重于对数据进行比较、分析，将其以图像的形式呈现出来</span>
+                <span class="c1"><input type="submit" name="compare_things" value="显示"></span>
+            </span>
+        </form>
+        <form action="/future_num_forecast">
+            <span class="c0" style="height:120px;width:29.5%">
+                <span class="c1">---未来数据预测---</span>
+                <span class="c1">侧重于根据现有数据，对未来数据的变化趋势做出预测</span>
+                <span class="c1"><input type="submit" name="future_num" value="预测"></span>
+            </span>
+        </form>
+        <div style="clear:both;"></div>
+    </div>
+    <a href="/huo_photo"><img src="/static/火属性.jpg"></a>
+    <a href="/shui_photo"><img src="/static/水属性.jpg"></a>
+    <a href="/bing_photo"><img src="/static/冰属性.jpg"></a>
+    <a href="/feng_photo"><img src="/static/风属性.jpg"></a>
+    <a href="/lei_photo"><img src="/static/雷属性.jpg"></a>
+    <a href="/yan_photo"><img src="/static/岩属性.jpg"></a>
+    <img src="/static/末尾.jpg" alt="">
+</body>
+</html>
